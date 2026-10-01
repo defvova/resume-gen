@@ -1,0 +1,94 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,left=43.2pt,right=57.8pt,top=27.6pt,bottom=54pt]{geometry}
+\pagestyle{empty}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.65pt}
+\raggedright
+\lineskiplimit=-100pt
+
+% right-aligned element on a line; if it has to wrap, it starts the next line flush left
+\newcommand{\rightpart}[1]{\hspace{0pt plus 1filll}#1}
+
+\newcommand{\rsection}[1]{%
+  \par\vspace{\secbefore}%
+  {\scshape #1}\par\nointerlineskip\vspace{\ruleabove}%
+  \hrule height 0.4pt\vspace{\rulebelow}}
+\newlength{\secbefore}\setlength{\secbefore}{0pt}
+\newlength{\ruleabove}\setlength{\ruleabove}{2.9pt}
+\newlength{\rulebelow}\setlength{\rulebelow}{-0.1pt}
+
+\newenvironment{rbody}{\begin{list}{}{\setlength{\leftmargin}{14.6pt}\setlength{\rightmargin}{0pt}%
+  \setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}\setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{5.65pt}\setlength{\listparindent}{0pt}}\raggedright\item[]}{\end{list}}
+
+\newlength{\hdra}\setlength{\hdra}{-4.03pt}
+\newlength{\hdrb}\setlength{\hdrb}{3.45pt}
+\begin{document}
+
+{\centering\leftskip=14.6pt plus 1fil
+  {\Huge\scshape << tex .Name >>\par}\vspace{\hdra}
+  <<- range $i, $c := .Contacts >><< if $i >> $\cdot$<< end >> << tex $c >><< end >>\par}
+\vspace{\hdrb}
+
+<<- if or .Education .Languages >>
+
+\rsection{Education}
+\begin{rbody}
+<<- range $i, $e := .Education >>
+<< if $i >>\par<< end >>\textbf{<< tex $e.Name >>} \hfill << tex $e.Location >>\\
+<< tex $e.Degree >> \hfill << tex $e.Dates >>
+<<- end >>
+<<- range .Languages >>\par
+\textbf{<< tex .Name >>} \hfill << tex .Level >>
+<<- end >>
+\end{rbody}
+<<- end >>
+
+<<- if .Experience >>
+
+\rsection{Work Experience}
+\begin{rbody}
+\vspace{3.1pt}
+<<- range $i, $w := .Experience >><< if $i >>\\<< end >>
+\textbf{<< tex $w.Company >>} \hfill << tex $w.Location >>\\
+\textit{<< tex $w.Role >>} \hfill << tex $w.Dates >>
+<<- end >>\par\vspace{-5.6pt}
+\end{rbody}
+<<- end >>
+
+<<- if .Skills >>
+
+\rsection{Skills}
+\begin{rbody}
+\vspace{-3.4pt}
+\lineskiplimit=0pt\begin{tabular}[b]{ l l }
+<<- range .Skills >>
+<< tex .Category >>: & << join .Items >>\\
+<<- end >>
+\end{tabular}
+\end{rbody}
+<<- end >>
+
+<<- if .Projects >>
+
+\vspace{-0.8pt}\rsection{Projects}
+\begin{rbody}
+<<- range $i, $p := .Projects >>
+<< if $i >>
+<< end >>\textbf{<< tex $p.Name >><< if $p.Dates >>, << tex $p.Dates >><< end >>}<< if $p.Stack >> \textit{<< join $p.Stack >>}<< end >><< if $p.URL >> \rightpart{<< tex $p.URL >>}<< end >>
+<<- if $p.Description >>\\
+<< tex $p.Description >>
+<<- end >>
+<<- if $p.Responsibilities >>\par
+Responsibilities:\par
+<<- range $p.Responsibilities >>
+
+- << tex . >>
+<<- end >>
+<<- end >>
+<<- end >>
+\end{rbody}
+<<- end >>
+
+\end{document}

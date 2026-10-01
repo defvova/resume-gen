@@ -1,0 +1,196 @@
+# Resume data. Edit this file, then run:  go run .
+# Plain text only — LaTeX special characters (& % $ # _ ~ etc.) are escaped automatically.
+# Order of items in each list = order in the PDF.
+
+name: Volodymyr Partytskyi
+contacts:
+  - Ukraine, UA
+  - volodymyr.partytskyi@gmail.com
+  - https://vovadev.com
+
+education:
+  - name: Cherkasy Engineering and Technological Institute
+    location: Ukraine, UA
+    degree: Specialist Software development
+    dates: 2011 - 2015
+
+languages:
+  - name: English
+    level: B2
+
+experience:
+  - company: Backtable
+    location: Ukraine, UA
+    role: Rust Engineer
+    dates: February 18th, 2026 - May 17th, 2026
+  - company: Parimatch(KZ)
+    location: Ukraine, UA
+    role: RoR Engineer
+    dates: March 2025 - January 2026
+  - company: MileStep LLC
+    location: Ukraine, UA
+    role: RoR Engineer
+    dates: Jul 2018 - Jul 2024
+  - company: Active Bridge, LLC
+    location: Ukraine, UA
+    role: RoR Engineer
+    dates: Nov 2013 - Jul 2018
+  - company: Svitla Systems, Inc.
+    location: Ukraine, UA
+    role: Ruby on Rails developer
+    dates: Aug 2011 - Nov 2013
+
+skills:
+  - category: Ruby
+    items: [Rails, Sidekiq, Grape, Rubocop, Active Record, Puma, Capybara, Hotwire]
+  - category: Javascript
+    items: [Node.js, React, Astro, NextJS, Typescript]
+  - category: Python
+    items: [FastAPI, NumPY]
+  - category: Rust
+    items: [Actix web, Sqlx, Utoipa, Axum, Serde]
+  - category: Javascript libraries
+    items: [ChakraUI, Tailwind, Vite, Drizzle.js, Prettier, Webpack, Jotai, Axios]
+  - category: Hosting services
+    items: [AWS, DigitalOcean, Heroku, Cloudflare, Vercel, Netlify]
+  - category: Testing
+    items: [RSpec, Jest, Playwright]
+  - category: DataBase
+    items: [PostgreSQL, MySQL, SQLite, Redis, Mongodb, Elasticsearch]
+  - category: Go
+    items: [Chi, Sqlc, gRPC]
+
+# Each project:
+#   name, dates, stack (list, shown in italics), url (right-aligned, optional),
+#   description (optional), responsibilities (optional list; if empty, no "Responsibilities:" line)
+projects:
+  - name: Breezy(Founder & Engineer)
+    dates: Jun 2026 - Present
+    stack: [Go, PostgreSQL, pgvector, pgx, sqlc, Python, spaCy, Next.js, TypeScript, LLM APIs]
+    url: https://breezy.news
+    description: >
+      Independent news aggregation and media analysis platform for the Ukrainian media landscape,
+      live in production with ~60 outlets indexed. I own product, architecture, backend, frontend
+      and infrastructure.
+    responsibilities:
+      - "Architected a Go microservice pipeline (crawler, NLP extractor, processing workers) coordinated via PostgreSQL job queues (FOR UPDATE SKIP LOCKED), with RSS ingestion, full-text scraping and cleaning."
+      - "Implemented semantic event clustering: article embeddings in pgvector grouped by cosine similarity into events, topics assigned per event via anchor embeddings, hash-based re-embedding detection."
+      - "Built a Ukrainian named-entity extraction service (Python, spaCy) and a hybrid media-analysis layer (clickbait scoring, manipulation techniques, source attribution, entity-level stance), combining cheap embedding/formula signals for the whole stream with LLM calls only for relevant articles."
+      - "Kept LLM costs low and predictable by replacing LLM-based entity extraction and topic classification with embedding- and NLP-based approaches."
+
+  - name: Backtable(Mobile Api)
+    dates: February 18th, 2026 - May 17th, 2026
+    stack: [Axum, Postgres, Utoipa, Sqlx]
+    url: https://www.backtable.com
+    description: >
+      BackTable is the podcast-based learning platform for specialized healthcare providers.
+      Get practical advice from your peers in the field.
+    responsibilities:
+      - "Designed and shipped a personalized video recommendation engine for authenticated users. Leveraged recent watch history, content entities, topic affinity, and engagement signals to calculate relevance scores and deliver ranked content recommendations."
+      - "Built and launched a centralized Notification Center, enabling users to view unread updates from multiple sources, including comments, newly published courses, and contributor content, improving user engagement and content discoverability."
+      - "Led a major redesign of the global search architecture. Reduced database queries from 10+ per request to just 1 by introducing a unified search index table containing searchable attributes, entity metadata, and ranking data. Significantly improved search performance, scalability, and maintainability."
+      - "Designed and implemented automated playlist thumbnail generation. Created dynamic image collages from playlist content, eliminating manual thumbnail management and ensuring visually consistent playlist previews."
+      - "Developed and maintained REST API endpoints across multiple product areas, delivering new features and integrations while ensuring backward compatibility."
+      - "Improved application reliability and performance through continuous optimization, bug fixing, refactoring, and automated test coverage."
+      - "Collaborated closely with product managers, designers, and engineers to deliver features from requirements through production deployment."
+
+  - name: Parimatch(KZ)
+    dates: March 2025 - January 2026
+    stack: [Rails, Sidekiq, Postgres, AdminLte, Anycable, Redis, Hotwire, Bootstrap]
+    url: https://pm-pass.kz
+    description: >
+      PM Pass is a promotional gamification platform tied to the Parimatch KZ ecosystem. It's not
+      a standalone SaaS product or business in the traditional sense — it's part of a loyalty /
+      engagement system for a betting platform. The core concept is to reward users with points by
+      completing challenges or quests and then allow them to redeem those points for prizes like
+      FreeBets, in-game items (e.g., Dota 2/CS2 skins), merchandise, or tech gear
+    responsibilities:
+      - "Maintained and extended admin backend and public APIs used by the frontend application"
+      - "Expanded admin functionality using Hotwire (Turbo/Stimulus) to improve internal workflows and reduce frontend complexity"
+      - "Designed and implemented automated tests to improve system reliability and long-term maintainability"
+      - "Developed Lottery APIs, allowing players to purchase tickets where winning probability dynamically increases with ticket count"
+      - "Built Coin Race APIs, enabling players to join competitive races, accumulate points, and share prize pools among winners"
+      - "Implemented real-time mini-game APIs (Rock–Paper–Scissors, Tic-Tac-Toe, Dice) using WebSockets for live multiplayer interactions"
+
+  - name: Maxeda
+    dates: Jun 2021 - Jul 2024
+    stack: [RoR, React, AWS, Node.js, Mysql, PostgreSQL, ChakraUI, Docker, Microservice]
+    url: https://www.praxis.nl
+    description: >
+      Maxeda DIY Group is the largest DIY retailer in the Benelux with Praxis in the Netherlands
+      and Brico and BricoPlanit in Belgium and Luxembourg. These retail chains are represented by
+      334 stores, both owned and in franchise form. Maxeda DIY Group has more than 6,500 employees,
+      around 60% of which work in the Netherlands. Together the stores have a total surface area of
+      over 1 million m² with more than 1.5 million customers each week in the stores and online.
+      As retailer of the leading brands in home improvement, we have a continued focus on improving
+      product ranges, both through better sourcing and improving our own brands.
+    responsibilities:
+      - "Ensured at least 80% test coverage using Jest and RSpec, improving code reliability."
+      - "Migrated a Ruby on Rails service from version 4 to 5."
+      - "Managed databases using PostgreSQL, optimizing queries for better performance."
+      - "Enhanced the admin panel built with Rails, adding new features for better data management and accessibility."
+      - "Configured AWS SNS and SQS for inter-service communication, ensuring reliable asynchronous messaging."
+      - "Implemented background job processing with Sidekiq for product synchronization and updates."
+      - "Generated XML feeds for articles."
+      - "Developed and deployed new services using Node.js, React, and Chakra UI to support business growth and scalability."
+      - "Deployed microservices on AWS Serverless, improving cost efficiency and system reliability."
+      - "Led the transition of a Rails-based service to a Node.js and React.js stack, improving maintainability and performance."
+
+  - name: GeekHub(Volunteer)
+    dates: Nov 2018 - May 2019
+    stack: [Ruby on Rails, ActiveRecord, Javascript, CSS]
+    url: https://geekhub.ck.ua
+    description: >
+      This is a training center that provides young people with the opportunity to gain practical
+      knowledge and skills in software development and IT. The center offered various courses, such
+      as iOS, JS, Ruby development courses for beginners.
+    responsibilities:
+      - "Volunteered as an instructor, teaching students foundational web development concepts."
+      - "Provided training on HTML, CSS, and JavaScript, ensuring students gained a strong frontend foundation."
+      - "Taught Ruby and Ruby on Rails, guiding students in building web applications from scratch."
+      - "Introduced students to key Rails modules, including Active Record, Action Mailer, Action Cable, and Active Storage."
+      - "Explained fundamental Object-Oriented Programming (OOP) principles to help students write clean and maintainable code."
+      - "Assisted students in developing simple yet fully functional projects as their final course assessment."
+
+  - name: UpStack
+    dates: Jun 2016 - Jan 2018
+    stack: [RoR, React, SCSS, PostgreSQL, DigitalOcean, Capistrano, MailGun, Devise]
+    url: https://upstack.com
+    description: Optimize your IT deployments with colocation and network price quotes and enterprise-grade analysis
+    responsibilities:
+      - "Developed and maintained a Rails API backend with a React.js frontend, replacing the traditional Rails ERB format."
+      - "Wrote and maintained RSpec and Capybara tests, improving reliability and ensuring high test coverage."
+      - "Integrated Google Maps API to display data centers on an interactive map with dynamic markers and popups."
+      - "Implemented geolocation-based data fetching in PostgreSQL to optimize performance when displaying a large number of data centers."
+      - "Built a user interface to display detailed information about data centers, providers, and specifications in interactive tables."
+      - "Developed authentication using LinkedIn OAuth and a custom login form for user access control."
+      - "Implemented email notifications using MailGun, ensuring reliable email delivery."
+      - "Styled the application using SCSS, maintaining a modular and scalable design system."
+      - "Deployed and managed the application on DigitalOcean, ensuring smooth production operations."
+
+  - name: DaisyBill
+    dates: Aug 2015 - Aug 2016
+    stack: [RoR, SCSS, PostgreSQL, JQuery, PDF, Bootstrap]
+    url: https://www.daisybill.com
+    description: Service that allows you to simplify working with medical bills.
+    responsibilities:
+      - "Developed a multi-step form workflow using Bootstrap and jQuery, allowing users to fill out forms step by step."
+      - "Implemented data persistence in PostgreSQL, enabling users to resume form completion at any step."
+      - "Ensured proper database relationships by structuring each form as a separate table with foreign keys, preventing orphaned data."
+      - "Designed and optimized background PDF generation, ensuring non-blocking request handling."
+      - "Allowed users to download dynamically generated PDFs after completing all form steps."
+
+  - name: Experience Summary
+    dates: Aug 2011 – Aug 2015
+    stack: [RoR, SCSS, LESS, MySQL, PostgreSQL, JQuery, PDF, Bootstrap, Javascript, ElasticSearch, MongoDB, Redis]
+    url: https://vovadev.com
+    description: >
+      Started my career as an intern and grew into a Middle Software Developer. During this period,
+      I worked on various projects, including numerous startups many of which, unfortunately, did not
+      reach production. However, these experiences provided me with invaluable knowledge and hands-on
+      expertise. I gained strong proficiency in Ruby on Rails and JavaScript, along with jQuery, LESS,
+      and SCSS. Worked extensively with databases such as PostgreSQL, MySQL, SQLite, MongoDB, Redis,
+      and Elasticsearch. Developed a deep understanding of design patterns, including Presenters,
+      Decorators, Strategy, and Service Objects. Built RESTful APIs and acquired experience with
+      WebSockets for real-time applications. These projects and challenges shaped me into a strong and
+      independent developer, capable of solving complex problems and delivering high-quality solutions.
